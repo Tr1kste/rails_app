@@ -1,0 +1,5 @@
+<%= form_for @post do |f| %>
+  <%= f.text_field :user_id %>
+  <%= f.text_area :description, placeholder: "Придумайте подпись..." %>
+  <%= f.submit 'Поделиться' %>
+<% end %>

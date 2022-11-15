@@ -8,11 +8,11 @@ class PostsController < ApplicationController
   def show; end
 
   def new
-    @post = current_user.posts.new
+    @post = Post.new
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = Post.create(post_params)
 
     if @post.save
       flash[:success] = 'Ваш пост опубликован!'
