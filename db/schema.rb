@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_15_141756) do
+ActiveRecord::Schema.define(version: 2022_11_15_144912) do
 
   create_table "users", force: :cascade do |t|
     t.text "first_name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_141756) do
     t.datetime "birthdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone_number", limit: 15, default: "11111111111", null: false
   end
 
 end
