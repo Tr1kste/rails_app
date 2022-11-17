@@ -2,22 +2,20 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    user = User.find(cookies[:user_id])
     @posts = []
     Post.all.each do |post|
-      @posts << post if post.user.id == user.id
+      @posts << post if post.user.id == current_user.id
     end
   end
 
   def show; end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def create
-    user = User.find(cookies[:user_id])
-    @post = user.post.create(post_params)
+    @post = current_user.post.build(post_params)
 
     if @post.save
       flash[:success] = 'Ваш пост опубликован!'
