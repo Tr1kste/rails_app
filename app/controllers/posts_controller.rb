@@ -26,9 +26,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @post
+  end
 
   def update
+    authorize @post
+
     if @post.update(post_params)
       flash[:success] = 'Пост обновлен.'
       redirect_to post_path(@post)
@@ -39,6 +43,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post
+    
     if @post.destroy
       flash[:success] = 'Пост удален.'
     else
