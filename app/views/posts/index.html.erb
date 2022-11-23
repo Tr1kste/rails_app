@@ -1,5 +1,20 @@
-<main class="home container">
+<main style="padding:25px;">
   <section class="posts index">
-    <%= render @posts %>
+    <%= link_to "Create new post", new_post_path, style: "font-size:24px; padding: 1rem; color: black; border:1px solid red;" %>
+    <table class="styled-table">
+      <thead>
+          <tr>
+              <th>User</th>
+              <th>Post Description</th>
+              <th>Link to post</th>
+              <th>Edit Post</th>
+              <th>Delete Post</th>
+          </tr>
+      </thead>
+
+      <tbody>
+        <%= render @posts %>
+      </tbody>
+    </table>
   </section>
 </main>

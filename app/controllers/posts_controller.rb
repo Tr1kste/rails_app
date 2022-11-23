@@ -15,11 +15,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.post.build(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       flash[:success] = 'Ваш пост опубликован!'
-      redirect_to root_path
+      redirect_to post_path(@post)
     else
       flash.now[:alert] = 'Ваш новый пост не создан! Пожалуйста, проверьте форму.'
       render :new
