@@ -2,10 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = []
-    Post.all.each do |post|
-      @posts << post if post.user.id == current_user.id
-    end
+    @posts = Post.includes(:user).order(created_at: :desc).page params[:page]
   end
 
   def show; end
@@ -56,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:description, :user_id)
+    params.require(:post).permit(:description, :image, :user_id)
   end
 
   def set_post

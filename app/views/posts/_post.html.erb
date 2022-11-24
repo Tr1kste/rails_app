@@ -1,4 +1,5 @@
 <tr>
+  <td><%= image_tag post.image_url %></td>
   <td><%= link_to post.user.email, user_path(post.user) %></td>
   <td><%= post.description %></td>
   <td><%= link_to "Post № #{post.id}", post_path(post) %></td>

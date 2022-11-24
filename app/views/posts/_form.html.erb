@@ -1,4 +1,5 @@
 <%= form_for @post, :html => {:class => 'form'} do |f|%>
+  <%= f.file_field :image %>
   <%= f.text_field :user_id %>
   <%= f.text_area :description, placeholder: "Придумайте подпись...", rows: "10"%>
   <%= f.submit 'Поделиться' %>
