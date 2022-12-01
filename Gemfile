@@ -57,6 +57,11 @@ group :test do
   gem 'webdrivers'
   gem 'pry'
   gem 'pry-rails'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'ffaker'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
